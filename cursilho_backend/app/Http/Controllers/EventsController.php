@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Event;
+use Illuminate\Http\Request;
+
+class EventsController extends Controller
+{
+
+    //Listando Eventos
+    public function index()
+    {
+        $events = Event::all();
+        return response()->json($events);
+    }
+
+    public function create()
+    {
+        //
+    }
+
+
+    //Salvando Evento no banco de dados
+    public function store(Request $request)
+    {
+        $event = new Event();
+
+        $event->name = $request->input('name');
+        $event->start_date = $request->input('start_date');
+        $event->end_date = $request->input('end_date');
+        $event->locale = $request->input('locale');
+        $event->description = $request->input('description');
+
+        $event -> save();
+
+        return response('Evento criado com sucesso!', 201);
+
+    }
+
+
+    //Mostrando evento específico
+    public function show($id)
+    {
+        $event = Event::find($id);
+
+        return response()->json($event);
+    }
+
+
+    //Informações do evento específico
+    public function edit($id)
+    {
+        $event = Event::find($id);
+
+        return response()->json($event);
+    }
+
+
+    //Atualizando Evento
+    public function update(Request $request, $id)
+    {
+        $event = Event::find($id);
+
+        $event -> name = $request->input('name');
+        $event -> start_date = $request->input('start_date');
+        $event -> end_date = $request->input('end_date');
+        $event -> locale = $request->input('locale');
+        $event -> description = $request->input('description');
+
+        $event -> save();
+
+        return response('Evento editado com sucesso!', 200);
+    }
+
+
+    //Deletando Evento
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+        $event->delete();
+
+        return response('Evento deletado com sucesso!', 200);
+    }
+}
