@@ -4,6 +4,7 @@ import Header from './app/components/Header';
 import Container from './app/components/Container';
 import Home from './app/pages/Home';
 import Events from './app/pages/Events';
+import Footer from './app/components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/events' element={<Events />} />
         </Routes>
       </Container>
+      <Footer/>
     </Router>
   );
 }
