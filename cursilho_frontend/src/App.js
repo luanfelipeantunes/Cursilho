@@ -5,6 +5,7 @@ import Container from './app/components/Container';
 import Home from './app/pages/Home';
 import Events from './app/pages/Events';
 import Footer from './app/components/Footer';
+import MyCalendar from './app/pages/Calendar/MyCalendar';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/events' element={<Events />} />
+          <Route path='/calendar' element={<MyCalendar />} />
+
         </Routes>
       </Container>
       <Footer/>

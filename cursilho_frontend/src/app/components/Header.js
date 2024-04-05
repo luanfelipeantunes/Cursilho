@@ -14,7 +14,7 @@ function Header() {
                         <a className={`nav-link ${styles.listItem}`} aria-current="page" href="/events">Eventos</a>
                     </li>
                     <li className={`nav-item`}>
-                        <a className={`nav-link ${styles.listItem}`} aria-current="page" href="#">Calendário</a>
+                        <a className={`nav-link ${styles.listItem}`} aria-current="page" href="/calendar">Calendário</a>
                     </li>
                 </ul>
             </div>

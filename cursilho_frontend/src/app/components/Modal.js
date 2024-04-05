@@ -1,4 +1,4 @@
-import styles from '../layout/Modal.module.css';
+import '../layout/Modal.module.css';
 
 function Modal(props) {
 

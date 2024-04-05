@@ -1,0 +1,7 @@
+.container{
+    margin: 2em auto;
+    border: 1px solid rgba(0, 0, 0, 0.603);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.507);
+    border-radius: 1em;
+    overflow: hidden;
+}
