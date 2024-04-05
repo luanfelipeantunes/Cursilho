@@ -1,0 +1,15 @@
+.card{
+    margin: 1em;
+    height: 16em !important;
+}
+
+.card p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card span{
+    color: #F25C05;
+}

@@ -1,0 +1,20 @@
+.navBar span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.navBar div{
+    justify-content: flex-start;
+}
+
+.navBar ul li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3em;
+    margin-right: 1.5em;
+    font-weight: bold;
+}
+
+.listItem:hover{
+    color: #4992F2 !important;
+}
