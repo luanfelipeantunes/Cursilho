@@ -11,6 +11,24 @@ import Modal from '../../components/Modal';
 function MyCalendar() {
 
     const localizer = momentLocalizer(moment);
+
+
+    const messages = {
+        today: 'Hoje',
+        previous: 'Anterior',
+        next: 'Próximo',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Dia',
+        agenda: 'Agenda',
+        date: 'Data',
+        time: 'Hora',
+        event: 'Evento',
+        allDay: 'O dia todo',
+        showMore: total => `+${total} mais`
+        // Adicione outros textos conforme necessário
+    };
+
     const [events, setEvents] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
