@@ -1,6 +1,7 @@
 
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
+import 'moment/locale/pt-br';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import styles from './MyCalendar.module.css';
 import { useEffect, useState } from 'react';
@@ -10,10 +11,12 @@ import Modal from '../../components/Modal';
 
 function MyCalendar() {
 
+    moment.locale('pt-br');
+
     const localizer = momentLocalizer(moment);
 
 
-    const messages = {
+   const messages = {
         today: 'Hoje',
         previous: 'Anterior',
         next: 'Próximo',
@@ -48,7 +51,7 @@ function MyCalendar() {
     }
 
     return <>
-        <div className={`${styles.container} d-flex justify-content-center align-items-center`}>
+        <div className={`${styles.container}`}>
             <Calendar
                 localizer={localizer}
                 style={{ height: 500, width: '90vw' }}
@@ -57,16 +60,18 @@ function MyCalendar() {
                 endAccessor="start_date"
                 titleAccessor="name"
                 onSelectEvent={handleEvent}
+                messages={messages}
+                culture='pt-br'
             />
         </div>
 
-        { openModal && selectedEvent != null && 
-            <Modal 
-                name = {selectedEvent.name}
-                start_date = {moment(selectedEvent.start_date).format('DD/MM/YYYY')}
-                locale = {selectedEvent.locale}
-                description = {selectedEvent.description}
-                setOpenModal = {() => setOpenModal(false)}
+        {openModal && selectedEvent != null &&
+            <Modal
+                name={selectedEvent.name}
+                start_date={moment(selectedEvent.start_date).format('DD/MM/YYYY')}
+                locale={selectedEvent.locale}
+                description={selectedEvent.description}
+                setOpenModal={() => setOpenModal(false)}
             />
         }
     </>
