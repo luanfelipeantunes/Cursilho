@@ -7,8 +7,8 @@ function SideBar( props) {
         <aside className={styles.sideBar}>
             <GoX onClick={props.setShowBar}/>
             <ul>
-                <li>Eventos</li>
-                <li>Usuários</li>
+                <li><a href="/admin/events">Eventos</a></li>
+                <li><a href="/admin/users">Usuários</a></li>
             </ul>
         </aside>
     )

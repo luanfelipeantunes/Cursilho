@@ -34,8 +34,7 @@ class EventsController extends Controller
 
         $event -> save();
 
-        return response('Evento criado com sucesso!', 201);
-
+        return json_encode($event);
     }
 
 
@@ -80,6 +79,6 @@ class EventsController extends Controller
         $event = Event::find($id);
         $event->delete();
 
-        return response('Evento deletado com sucesso!', 200);
+        return redirect('http://localhost:3000/admin/events');
     }
 }

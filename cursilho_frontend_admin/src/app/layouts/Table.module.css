@@ -1,0 +1,19 @@
+.container{
+    width: 100vw;
+    
+}
+
+.table{
+    width: 95vw;
+    margin: 1em auto;
+    border: 1px solid rgba(0, 0, 0, 0.404);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.342);
+}
+
+td, th {
+    vertical-align: middle;
+}
+
+.icon svg{
+    position: relative;
+}

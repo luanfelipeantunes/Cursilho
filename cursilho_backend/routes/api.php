@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Eventos
 Route::group(['prefix' => 'events'], function(){
     Route::post('/', [EventsController::class, 'store']);
-    Route::get('/', [EventsController::class, 'index']);
+    Route::get('/', [EventsController::class, 'index']) -> name('events.index');
     Route::delete('/{id}', [EventsController::class, 'destroy']);
     Route::patch('/{id}', [EventsController::class, 'update']);
     Route::get('/edit/{id}', [EventsController::class, 'edit']);
