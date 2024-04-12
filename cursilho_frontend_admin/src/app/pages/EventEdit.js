@@ -2,12 +2,22 @@ import axios from 'axios';
 import styles from '../layouts/NewEvent.module.css';
 import { Constants } from '../utils/Constants';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function NewEvent(props) {
+function EventEdit(props) {
 
     const navigate = useNavigate();
+    const { id } = useParams();
     const [newEvent, setNewEvent] = useState(null);
+
+    //Essa função encontra o evento específico
+    useEffect(() => {
+        axios.patch(Constants.baseUrl + '/events/' + id)
+        .then(response => {
+            setNewEvent(response.data);
+            console.log(response.data);
+        })
+    }, []);
 
     //Essa função armazena os valores dos inputs em newEvent a cada mudança
     const handleStore = (event) => {
@@ -59,4 +69,4 @@ function NewEvent(props) {
     )
 }
 
-export default NewEvent;
+export default EventEdit;

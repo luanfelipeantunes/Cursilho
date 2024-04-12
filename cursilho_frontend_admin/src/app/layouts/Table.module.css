@@ -16,4 +16,7 @@ td, th {
 
 .icon svg{
     position: relative;
+    font-size: 1.4em;
+    top: -2px;
+    margin: auto 10px;
 }

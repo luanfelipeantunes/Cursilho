@@ -78,7 +78,5 @@ class EventsController extends Controller
     {
         $event = Event::find($id);
         $event->delete();
-
-        return redirect('http://localhost:3000/admin/events');
     }
 }
