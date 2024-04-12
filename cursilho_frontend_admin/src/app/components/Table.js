@@ -1,20 +1,12 @@
 import styles from "../layouts/Table.module.css";
 import moment from 'moment';
-import { HiMiniPencilSquare } from "react-icons/hi2";
+import { FaPenSquare, FaRegTrashAlt } from "react-icons/fa";
 import { Constants } from "../utils/Constants";
 import axios from "axios";
 
 function Table(props) {
 
-    const handleDelete = async (id) => {
-
-         try{
-            await axios.delete(Constants.baseUrl + `/events/${id}`)
-         }
-         catch(error){
-            console.error("Erro erro", error);
-         }
-    }
+    
 
     return (
 
@@ -37,7 +29,10 @@ function Table(props) {
                         <td> {moment(event.start_date).format('DD/MM/YYYY')} </td>
                         <td> {event.locale} </td>
                         <td> {event.description} </td>
-                        <td className={styles.icon}> <HiMiniPencilSquare onClick={() => handleDelete(event.id)}/> </td>
+                        <td className={styles.icon}>
+                            <FaRegTrashAlt onClick={() => props.deleteEvent(event.id)}/> 
+                            <FaPenSquare/>
+                        </td>
                     </tr>
                 ])}
             </tbody>
