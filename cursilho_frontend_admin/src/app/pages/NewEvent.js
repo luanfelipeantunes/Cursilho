@@ -1,7 +1,7 @@
 import axios from 'axios';
 import styles from '../layouts/NewEvent.module.css';
 import { Constants } from '../utils/Constants';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function NewEvent(props) {
@@ -18,7 +18,6 @@ function NewEvent(props) {
 
     //Essa função salva de fato o evento
     const submit = async (event) => {
-
         event.preventDefault();
         const response = await axios.post(Constants.baseUrl + '/events', newEvent, {
             headers: {
@@ -27,7 +26,7 @@ function NewEvent(props) {
         });
         console.log('Status: ', response.status);
 
-        if (response.status != 200) {
+        if (response.status !== 200) {
             throw new Error('Erro ao salvar evento');
         }
 

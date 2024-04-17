@@ -1,4 +1,3 @@
-import { SlMenu } from 'react-icons/sl';
 import styles from '../layouts/SideBar.module.css';
 import { GoX } from "react-icons/go";
 

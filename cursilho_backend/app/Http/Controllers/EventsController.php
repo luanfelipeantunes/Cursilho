@@ -11,7 +11,7 @@ class EventsController extends Controller
     //Listando Eventos
     public function index()
     {
-        $events = Event::all();
+        $events = Event::paginate(10);
         return response()->json($events);
     }
 
@@ -68,8 +68,6 @@ class EventsController extends Controller
         $event -> description = $request->input('description');
 
         $event -> save();
-
-        return response('Evento editado com sucesso!', 200);
     }
 
 

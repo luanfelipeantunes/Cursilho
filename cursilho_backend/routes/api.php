@@ -26,6 +26,6 @@ Route::group(['prefix' => 'events'], function(){
     Route::get('/', [EventsController::class, 'index']) -> name('events.index');
     Route::delete('/{id}', [EventsController::class, 'destroy']);
     Route::patch('/{id}', [EventsController::class, 'update']);
-    Route::get('/edit/{id}', [EventsController::class, 'edit']);
+    Route::get('/{id}', [EventsController::class, 'edit']);
     Route::get('/show/{id}', [EventsController::class, 'show']);
 });

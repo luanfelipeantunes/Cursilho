@@ -1,14 +1,13 @@
 import styles from "../layouts/Table.module.css";
 import moment from 'moment';
 import { FaPenSquare, FaRegTrashAlt } from "react-icons/fa";
-import { Constants } from "../utils/Constants";
-import axios from "axios";
+import Paginator from "./Paginator";
 
 function Table(props) {
 
-    
 
-    return (
+
+    return <>
 
         <table className={`table table-striped table-hover ${styles.table}`}>
             <thead>
@@ -30,15 +29,15 @@ function Table(props) {
                         <td> {event.locale} </td>
                         <td> {event.description} </td>
                         <td className={styles.icon}>
-                            <FaRegTrashAlt onClick={() => props.deleteEvent(event.id)}/> 
-                            <FaPenSquare/>
+                            <FaRegTrashAlt onClick={() => props.deleteEvent(event.id)} />
+                            <a href={`/admin/events/edit/${event.id}`}><FaPenSquare /></a>
                         </td>
                     </tr>
                 ])}
             </tbody>
         </table>
-
-    )
+        
+    </>
 }
 
 export default Table;
