@@ -1,7 +1,6 @@
 import styles from "../layouts/Table.module.css";
 import moment from 'moment';
 import { FaPenSquare, FaRegTrashAlt } from "react-icons/fa";
-import Paginator from "./Paginator";
 
 function Table(props) {
 
@@ -19,8 +18,7 @@ function Table(props) {
                     <th scope="col" className="col-3"> Descrição </th>
                     <th scope="col" className="col-1"> Ações </th>
                 </tr>
-            </thead>
-            <tbody>
+            </thead><tbody>
                 {props.events.map(event => [
                     <tr>
                         <td> EDDD </td>
@@ -35,8 +33,10 @@ function Table(props) {
                     </tr>
                 ])}
             </tbody>
+
+
         </table>
-        
+
     </>
 }
 

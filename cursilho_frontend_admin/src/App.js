@@ -15,7 +15,7 @@ function App() {
           <Route path='/admin/events' element={<Events/>}/>
           <Route path='/admin/events/new' element={<NewEvent/>}/>
           <Route path='/admin/events/edit/:id' element={<EventEdit/>}/>
-
+          
         </Routes>
       </Container>
     </Router>

@@ -20,7 +20,7 @@ function Events() {
                 console.log(response.data);
             })
             .catch(error => console.error(error))
-    }, [currentPage]);
+    }, [currentPage, events.length]);
 
     //Deleta um Evento
     function deleteEvent(id) {
@@ -33,7 +33,7 @@ function Events() {
     }
 
     return (
-        <div style={{ width: '100vw' }}>
+        <div style={{ width: '100vw', marginTop: '10vh' }}>
             <a href="/admin/events/new" className="btn btn-primary" style={{ margin: '1.5em 0 0 2.2em' }}> Novo Evento </a>
 
             <Table
@@ -41,10 +41,10 @@ function Events() {
                 deleteEvent={deleteEvent}
             />
 
-            <Paginator 
-                currentPage = {currentPage}
-                setCurrentPage = {setCurrentPage}
-                dataTable = {dataTable}
+            <Paginator
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                dataTable={dataTable}
             />
 
         </div>
