@@ -1,6 +1,13 @@
 .card{
     margin: 1em;
-    height: 17em !important;
+}
+
+.card h5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 3px;
 }
 
 .card p{

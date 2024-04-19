@@ -21,7 +21,7 @@ function Table(props) {
             </thead><tbody>
                 {props.events.map(event => [
                     <tr>
-                        <td> EDDD </td>
+                        <td> {event.acron} </td>
                         <td> {event.name} </td>
                         <td> {moment(event.start_date).format('DD/MM/YYYY')} </td>
                         <td> {event.locale} </td>

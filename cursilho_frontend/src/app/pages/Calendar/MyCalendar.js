@@ -39,7 +39,7 @@ function MyCalendar() {
     useEffect(() => {
         axios.get(Constants.baseUrl + '/events')
             .then(response => {
-                setEvents(response.data);
+                setEvents(response.data.data);
             })
             .catch(error => console.error('Erro na chamada à API: ', error))
     }, [])

@@ -21,6 +21,7 @@ class EventsSeeder extends Seeder
 
         foreach ($data as $d) {
             Event::create([
+                'acron' => $d['acron'],
                 'name' => $d['name'],
                 'start_date' => $d['start_date'],
                 'end_date' => $d['end_date'],

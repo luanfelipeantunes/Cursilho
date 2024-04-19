@@ -9,9 +9,10 @@ class EventsController extends Controller
 {
 
     //Listando Eventos
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::paginate(10);
+        $perPage = $request -> input('perPage', 10);
+        $events = Event::paginate($perPage);
         return response()->json($events);
     }
 

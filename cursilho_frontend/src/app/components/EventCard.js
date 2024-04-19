@@ -11,7 +11,8 @@ function EventCard(props) {
     return <>
         <div className={`card ${styles.card}`} style={{ width: '25vw' }}>
             <div className={`card-header`}>
-                <h5 className={`card-title`}>{props.name}</h5>
+                <h4 style={{textAlign: 'center', color:'#F25C05', fontWeight: 'bold'}}>{props.acron}</h4>
+                <h5 className={`card-title`} style={{textAlign: 'center'}}>{props.name}</h5>
 
             </div>
             <div className={`card-body`}>
@@ -30,7 +31,7 @@ function EventCard(props) {
             start_date = {formatedDate}
             locale = {props.locale}
             description = {props.description}
-
+            acron = {props.acron}
         />}
     </>
 }
