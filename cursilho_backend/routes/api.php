@@ -7,6 +7,8 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +39,13 @@ Route::group(['prefix' => 'events'], function(){
 
 //Users
 Route::group(['prefix' => 'users'], function() {
-    Route::get('/register', [RegisterController::class, 'create']);
-    Route::post('/register', [RegisterController::class, 'store']);
-    Route::post('/logout', [LogoutController::class, 'destroy'])
-        ->middleware('auth');
-    Route::post('/forgot-password', [ForgotPasswordController::class, 'store']);
-    Route::post('/forgot-password/{token}', [ForgotPasswordController::class, 'reset']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+
+    Route::middleware('auth:sanctum')->group(function(){
+        Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+        Route::get('/user', [UserController::class, 'getUser']);
+    });
 });
+
+
