@@ -6,7 +6,7 @@ import axiosInstance from '../utils/Utils';
 import { useNavigate } from 'react-router-dom';
 
 
-function Login() {
+function Login(props) {
 
     const navigate = useNavigate();
 
@@ -18,15 +18,17 @@ function Login() {
         console.log(credentials);
     }
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
         
         try {
-            const response = axiosInstance.post(Constants.baseUrl + '/login', credentials)
+            const response = await axiosInstance.post(Constants.baseUrl + '/login', credentials)
 
             if (response.status !== 200) {
                 console.error('Login não autorizado!');
-            }
+            };
+
+            props.setIsAuthorized();
 
             navigate('/admin/events');
 
