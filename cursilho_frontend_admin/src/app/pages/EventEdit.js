@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosInstance from '../utils/Utils';
 import styles from '../layouts/NewEvent.module.css';
 import { Constants } from '../utils/Constants';
 import { useEffect, useState } from 'react';
@@ -12,7 +12,7 @@ function EventEdit(props) {
 
     //Essa função encontra o evento específico
     useEffect(() => {
-        axios.get(Constants.baseUrl + '/events/' + id)
+        axiosInstance.get(Constants.baseUrl + '/events/' + id)
             .then(response => {
                 setNewEvent(response.data);
                 console.log(response.data);
@@ -29,7 +29,7 @@ function EventEdit(props) {
     const  submit = async (event) => {
 
         event.preventDefault();
-        const response = await axios.patch(Constants.baseUrl + '/events/' + id, newEvent);
+        const response = await axiosInstance.patch(Constants.baseUrl + '/events/' + id, newEvent);
 
         if (response.status !== 200) {
             throw new Error('Erro ao salvar evento');

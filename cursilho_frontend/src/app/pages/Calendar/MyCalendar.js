@@ -5,7 +5,7 @@ import 'moment/locale/pt-br';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import styles from './MyCalendar.module.css';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../../../../cursilho_frontend_admin/src/app/utils/Utils';
 import { Constants } from '../../utils/Constants';
 import Modal from '../../components/Modal';
 
@@ -37,7 +37,7 @@ function MyCalendar() {
     const [selectedEvent, setSelectedEvent] = useState(null);
 
     useEffect(() => {
-        axios.get(Constants.baseUrl + '/events')
+        axiosInstance.get(Constants.baseUrl + '/events')
             .then(response => {
                 setEvents(response.data.data);
             })

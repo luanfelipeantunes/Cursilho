@@ -38,14 +38,14 @@ Route::group(['prefix' => 'events'], function(){
 
 
 //Users
-Route::group(['prefix' => 'users'], function() {
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/login', [AuthController::class, 'login']);
 
-    Route::middleware('auth:sanctum')->group(function(){
-        Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-        Route::get('/user', [UserController::class, 'getUser']);
-    });
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::get('/user', [UserController::class, 'getUser']);
 });
+
 
 

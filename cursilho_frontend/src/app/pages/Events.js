@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import EventCard from "../components/EventCard";
 import styles from '../layout/Events.module.css';
-import axios from 'axios';
+import axiosInstance from "../../../../cursilho_frontend_admin/src/app/utils/Utils";
 import { Constants } from '../utils/Constants';
 
 
@@ -18,7 +18,7 @@ function Events() {
     }
 
     useEffect(() => {
-        axios.get(Constants.baseUrl + `/events?perPage=${perPage}`)
+        axiosInstance.get(Constants.baseUrl + `/events?perPage=${perPage}`)
             .then(response => {
                 console.log(response.data);
                 setEvents(response.data.data);

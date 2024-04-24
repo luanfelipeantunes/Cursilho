@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Table from "../components/Table";
-import axios from 'axios';
+import axiosInstance from "../utils/Utils";
 import { Constants } from '../utils/Constants';
 import Paginator from "../components/Paginator";
 
@@ -13,7 +13,7 @@ function Events() {
 
     //Pega os eventos
     useEffect(() => {
-        axios.get(Constants.baseUrl + `/events?page=${currentPage}`)
+        axiosInstance.get(Constants.baseUrl + `/events?page=${currentPage}`)
             .then(response => {
                 setEvents(response.data.data);
                 setDataTable(response.data);
@@ -24,7 +24,7 @@ function Events() {
 
     //Deleta um Evento
     function deleteEvent(id) {
-        axios.delete(Constants.baseUrl + '/events/' + id)
+        axiosInstance.delete(Constants.baseUrl + '/events/' + id)
             .then(response => {
                 setEvents(events.filter((event) => event.id !== id))
                 console.log('Evento excluído!');
