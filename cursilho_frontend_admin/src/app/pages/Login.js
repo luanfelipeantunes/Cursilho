@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import Logo from '../img/Logo_MCC.png';
 import styles from '../layouts/Login.module.css'
-import { Constants } from '../utils/Constants';
-import axiosInstance from '../utils/Utils';
 import { useNavigate } from 'react-router-dom';
-
+import { signin } from '../utils/Auth/AuthProvider';
 
 function Login(props) {
 
@@ -20,21 +18,15 @@ function Login(props) {
 
     const submit = async (e) => {
         e.preventDefault();
-        
-        try {
-            const response = await axiosInstance.post(Constants.baseUrl + '/login', credentials)
 
-            if (response.status !== 200) {
-                console.error('Login não autorizado!');
-            };
+        const token = await signin(credentials);
+        console.log("Token: ", token);
 
-            props.setIsAuthorized();
-
-            navigate('/admin/events');
-
-        } catch (error) {
-            console.error('Erro: ', error);
-        };
+        //Seta o token em local storage caso esteja setadp
+        if (token) {
+            localStorage.setItem('authToken', token);
+            return navigate('/admin/events');
+        }
     }
 
     return (
