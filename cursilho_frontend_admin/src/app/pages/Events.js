@@ -3,6 +3,7 @@ import Table from "../components/Table";
 import axiosInstance from "../utils/Utils";
 import { Constants } from '../utils/Constants';
 import Paginator from "../components/Paginator";
+import { Link } from "react-router-dom";
 
 function Events() {
 
@@ -34,7 +35,7 @@ function Events() {
 
     return (
         <div style={{width: '100vw'}}>
-            <a href="/admin/events/new" className="btn btn-primary" style={{ margin: '1.5em 0 0 1.7em' }}> Novo Evento </a>
+            <Link to="/admin/events/new" className="btn btn-primary" style={{ margin: '1.5em 0 0 1.7em' }}> Novo Evento </Link>
 
             <Table
                 events={events}

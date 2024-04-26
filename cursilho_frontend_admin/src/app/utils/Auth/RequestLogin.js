@@ -14,14 +14,14 @@ function RequestLogin({children}){
             console.log("Usuário autorizado. Token: ", token);
             setIsAuthorized(true);
         }else{
-            navigate("/admin/login");
+            navigate("/");
         }
     }, [navigate]);
 
     //Verifica se a página requisitada é a tela de login
     useEffect(() => {
         const token = localStorage.getItem('authToken');
-        if(token && window.location.pathname === "/admin/login"){
+        if(token && window.location.pathname === "/"){
             navigate("/admin/events");
         }
     }, [navigate])

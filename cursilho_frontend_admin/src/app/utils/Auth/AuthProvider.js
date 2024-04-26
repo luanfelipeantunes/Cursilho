@@ -23,7 +23,7 @@ export const singout = async () => {
         await axiosInstance.post(Constants.baseUrl + '/logout');
         const token = localStorage.setItem("authToken", '');
         console.log("Usuário deslogado com sucesso! Token: ", token);
-
+        window.location.reload();
     } catch (error) {
         return console.error("Erro ao deslogar do sistema: ", error);
     }

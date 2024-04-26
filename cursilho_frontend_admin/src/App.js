@@ -22,7 +22,7 @@ function App() {
 
           <Route path='/admin/events/edit/:id' element={<RequestLogin> <EventEdit /> </RequestLogin>} />
 
-          <Route path='/admin/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
         </Routes>
       </Container>
     </Router>
