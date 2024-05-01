@@ -26,7 +26,7 @@ function EventEdit(props) {
     }
 
     //Essa função salva de fato o evento
-    const  submit = async (event) => {
+    const submit = async (event) => {
 
         event.preventDefault();
         const response = await axiosInstance.patch(Constants.baseUrl + '/events/' + id, newEvent);
@@ -41,6 +41,9 @@ function EventEdit(props) {
         {newEvent != null &&
             <div className={styles.container}>
                 <form className={`form-group`} onSubmit={submit}>
+
+                    <label> Sigla do evento </label>
+                    <input type='text' id='acron' name='acron' className='form-control' placeholder='Digite a sigla do evento' onChange={handleStore} value={newEvent.acron}></input>
 
                     <label for="name"> Nome do Evento </label>
                     <input type='text' id="name" name="name" className="form-control" placeholder='Digite o nome do evento' onChange={handleStore} value={newEvent.name}></input>

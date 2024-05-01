@@ -27,6 +27,7 @@ class EventsController extends Controller
     {
         $event = new Event();
 
+        $event->acron = $request->input('acron');
         $event->name = $request->input('name');
         $event->start_date = $request->input('start_date');
         $event->end_date = $request->input('end_date');
@@ -62,6 +63,7 @@ class EventsController extends Controller
     {
         $event = Event::find($id);
 
+        $event -> acron = $request->input('acron');
         $event -> name = $request->input('name');
         $event -> start_date = $request->input('start_date');
         $event -> end_date = $request->input('end_date');

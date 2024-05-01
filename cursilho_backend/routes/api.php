@@ -27,13 +27,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 //Events
-Route::group(['prefix' => 'events'], function(){
-    Route::post('/', [EventsController::class, 'store']);
-    Route::get('/', [EventsController::class, 'index']) -> name('events.index');
-    Route::delete('/{id}', [EventsController::class, 'destroy']);
-    Route::patch('/{id}', [EventsController::class, 'update']);
-    Route::get('/{id}', [EventsController::class, 'edit']);
-    Route::get('/show/{id}', [EventsController::class, 'show']);
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::group(['prefix' => 'events'], function(){
+        Route::post('/', [EventsController::class, 'store']);
+        Route::get('/', [EventsController::class, 'index']) -> name('events.index');
+        Route::delete('/{id}', [EventsController::class, 'destroy']);
+        Route::patch('/{id}', [EventsController::class, 'update']);
+        Route::get('/{id}', [EventsController::class, 'edit']);
+        Route::get('/show/{id}', [EventsController::class, 'show']);
+    });
 });
 
 
@@ -44,7 +47,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-Route::get('/user', [UserController::class, 'getUser']);
+    Route::get('/user', [UserController::class, 'getUser']);
 });
 
 

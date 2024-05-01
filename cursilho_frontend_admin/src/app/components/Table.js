@@ -1,37 +1,33 @@
 import styles from "../layouts/Table.module.css";
-import moment from 'moment';
 import { FaPenSquare, FaRegTrashAlt } from "react-icons/fa";
 
-function Table(props) {
-
-
+function Table({columns, data, onDelete, onEdit}) {
 
     return <>
 
         <table className={`table table-striped table-hover ${styles.table}`}>
             <thead>
                 <tr>
-                    <th scope="col" className="col-1"> Sigla </th>
-                    <th scope="col" className="col-2"> Evento </th>
-                    <th scope="col" className="col-2"> Data </th>
-                    <th scope="col" className="col-2"> Local </th>
-                    <th scope="col" className="col-3"> Descrição </th>
+                    {columns.map((column) => (
+                        <th key={column.key}> {column.label} </th>
+                    ))}
                     <th scope="col" className="col-1"> Ações </th>
                 </tr>
-            </thead><tbody>
-                {props.events.map(event => [
-                    <tr>
-                        <td> {event.acron} </td>
-                        <td> {event.name} </td>
-                        <td> {moment(event.start_date).format('DD/MM/YYYY')} </td>
-                        <td> {event.locale} </td>
-                        <td> {event.description} </td>
+            </thead>
+            <tbody>
+                    {data.map((item)=>(
+                        <tr key={item.id}> 
+                            {columns.map((column) => (
+                                <td key={`${item.id}-${column.key}`}> 
+                                    {column.render ? column.render(item[column.key]) : item[column.key]}
+                                </td>
+                            ))}
                         <td className={styles.icon}>
-                            <FaRegTrashAlt onClick={() => props.deleteEvent(event.id)} />
-                            <a href={`/admin/events/edit/${event.id}`}><FaPenSquare /></a>
+                            <FaRegTrashAlt onClick={() => onDelete(item.id)} />
+                            <FaPenSquare onClick={() => onEdit(item.id)}/>
                         </td>
-                    </tr>
-                ])}
+                        </tr>
+                    ))}
             </tbody>
 
 
