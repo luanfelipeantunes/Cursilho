@@ -22,7 +22,7 @@ function Login(props) {
         const token = await signin(credentials);
         console.log("Token: ", token);
 
-        //Seta o token em local storage
+        //Seta o token em local storage caso esteja setadp
         if (token) {
             localStorage.setItem('authToken', token);
             return navigate('/admin/events');

@@ -20,7 +20,7 @@ function Header() {
             {!showBar && <SlMenu onClick={() => setShowBar(true)}/>}
             {showBar && <SideBar setShowBar={() => setShowBar(false)}/>}
             <nav className={styles.navBar}>
-                {user && <h4 className={styles.nameUser}>Bem vindo, <span>{getFirstName(user.name)}</span></h4>}
+                {user && <h5 className={styles.nameUser}>Bem vindo, <span>{getFirstName(user.name)}</span></h5>}
             </nav>
 
 
