@@ -19,11 +19,7 @@ function NewEvent(props) {
     //Essa função salva de fato o evento
     const submit = async (event) => {
         event.preventDefault();
-        const response = await axios.post(Constants.baseUrl + '/events', newEvent, {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
+        const response = await axios.post(Constants.baseUrl + '/events', newEvent);
         console.log('Status: ', response.status);
 
         if (response.status !== 200) {

@@ -7,10 +7,14 @@ import RequestLogin from '../utils/Auth/RequestLogin';
 function SideBar(props) {
     return (
         <aside className={styles.sideBar}>
-            <GoX onClick={props.setShowBar} />
+            <div>
+                <GoX onClick={props.setShowBar} />
+                <hr className={styles.horizontalLine}/>
+            </div>
+            
             <ul>
                 <li><Link to="/admin/events"> Eventos </Link></li>
-                <li><Link to="admin/users"> Usuários </Link></li>
+                <li><Link to="admin/events"> Usuários </Link></li>
                 <RequestLogin><li className={styles.logout}><Link onClick={singout}>Sair</Link></li></RequestLogin>
             </ul>
         </aside>

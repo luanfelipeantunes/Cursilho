@@ -24,3 +24,8 @@
     left: -5px;
     margin-left: 2vw;
 }
+
+.horizontalLine {
+    margin-top: 3.7em;
+    border-top: 3px solid black;
+}

@@ -55,7 +55,11 @@ function Events() {
     return (
         <div style={{width: '100vw'}}>
 
-            <Link to="/admin/events/new" className="btn btn-primary" style={{ margin: '1.5em 0 0 1.7em' }}> Novo Evento </Link>
+            <Link to="/admin/events/new" className="btn btn-primary" style={{ margin: '1.5em 0 0 1.7em', fontWeight: "bold" }}> Novo Evento </Link>
+
+            <Link to={"/admin/users/new"} className="btn btn-secondary" style={{ margin: '1.5em 0 0 1.7em', fontWeight: "bold" }}>
+                Novo Usuário
+            </Link>
 
             <Table
                 columns = {columns}

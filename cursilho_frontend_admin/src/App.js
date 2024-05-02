@@ -8,6 +8,7 @@ import EventEdit from './app/pages/EventEdit.js';
 import Login from './app/pages/Login.js';
 import RequestLogin from './app/utils/Auth/RequestLogin.js';
 import { AuthProvider } from './app/utils/Auth/AuthContext.js';
+import NewUser from './app/pages/NewUser.js';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
             <Route path='/admin/events' element={<RequestLogin> <Events /> </RequestLogin>} />
             <Route path='/admin/events/new' element={<RequestLogin> <NewEvent /> </RequestLogin>} />
             <Route path='/admin/events/edit/:id' element={<RequestLogin> <EventEdit /> </RequestLogin>} />
+
+            <Route path='admin/users/new' element={ <NewUser /> }/>
+
             <Route path='/' element={<Login />} />
           </Routes>
         </Container>
