@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import EventCard from "../components/EventCard";
 import styles from '../layout/Events.module.css';
-import axiosInstance from "../../../../cursilho_frontend_admin/src/app/utils/Utils";
 import { Constants } from '../utils/Constants';
+import axiosInstance from "../utils/Utils";
+import BetterLoader from "../components/BetterLoader";
 
 
 function Events() {
@@ -11,8 +12,10 @@ function Events() {
     const perPageInitial = 6;
     const [perPage, setPerPage] = useState(perPageInitial);
     const [dataTableEvents, setDataTableEvents] = useState([]);
+    const [showLoader, setShowLoader] = useState(true);
 
     function loadMore() {
+        setShowLoader(true);
         setPerPage(perPage + perPageInitial);
         console.log(perPage);
     }
@@ -23,6 +26,7 @@ function Events() {
                 console.log(response.data);
                 setEvents(response.data.data);
                 setDataTableEvents(response.data);
+                setShowLoader(false);
             })
             .catch(error => console.error('Erro na solicitação: ', error))
     }, [perPage]);
@@ -31,22 +35,28 @@ function Events() {
     return (
         <>
             <div className={styles.container}>
-                {events.map(event => [
+
+                {!showLoader ? events.map(event => [
                     <EventCard
+                        key={event.id}
                         name={event.name}
                         start_date={event.start_date}
                         end_date={event.end_date}
                         locale={event.locale}
                         description={event.description}
                         acron={event.acron} />
-                ])}
+                ])
+                    :
+                    <BetterLoader />
+                }
+
             </div>
-            <div class="d-grid gap-2 col-6 mx-auto">
+            {!showLoader && <div className="d-grid gap-2 col-6 mx-auto">
                 <button
                     className={`btn btn-secondary ${dataTableEvents.to === dataTableEvents.total ? 'invisible' : ''}`} type="button" style={{ marginBottom: '1em' }} onClick={() => loadMore()}>
                     Carregar mais
                 </button>
-            </div>
+            </div>}
         </>
     )
 }

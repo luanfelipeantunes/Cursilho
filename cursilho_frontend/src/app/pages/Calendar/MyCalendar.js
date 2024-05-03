@@ -3,11 +3,12 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import styles from './MyCalendar.module.css';
+import './Calendar.css';
 import { useEffect, useState } from 'react';
-import axiosInstance from '../../../../../cursilho_frontend_admin/src/app/utils/Utils';
 import { Constants } from '../../utils/Constants';
 import Modal from '../../components/Modal';
+import axiosInstance from '../../utils/Utils';
+import CustomToolbar from './CustomToolbar';
 
 function MyCalendar() {
 
@@ -51,10 +52,10 @@ function MyCalendar() {
     }
 
     return <>
-        <div className={`${styles.container}`}>
+        <div className='container'>
             <Calendar
                 localizer={localizer}
-                style={{ height: 500, width: '90vw' }}
+                style={{ height: '100vh', width: '98%' }}
                 events={events}
                 startAccessor="start_date"
                 endAccessor="start_date"
@@ -62,6 +63,10 @@ function MyCalendar() {
                 onSelectEvent={handleEvent}
                 messages={messages}
                 culture='pt-br'
+                view='month'
+                components={{
+                    toolbar: CustomToolbar
+                }}
             />
         </div>
 
