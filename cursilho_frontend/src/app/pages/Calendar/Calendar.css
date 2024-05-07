@@ -34,6 +34,34 @@
     padding: 0.4em;
 }
 
-.rbc-off-range-bg{
+.rbc-day-bg.rbc-off-range-bg{
     background-color: rgb(233, 227, 227);
+}
+
+.rbc-day-bg, .rbc-header{
+    border: 1px solid #e0e0e0;
+}
+
+.rbc-now > .rbc-button-link{
+    background-color: #F25C05;
+    padding: 2px 6px;
+    border-radius: 50%;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+.rbc-current > .rbc-button-link{
+    border: 2px solid #F25C05;
+    border-radius: 50%;
+    padding: 2px 6px;
+    margin-top: 2px;
+}
+
+.rbc-event, .rbc-event.rbc-selected{
+    width: 7em;
+    text-align: center;
+    margin: 5px auto;
+    color: #F25C05;
+    background-color: #50A7F2;
+    font-weight: 500;
 }

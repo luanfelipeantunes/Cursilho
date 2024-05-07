@@ -1,0 +1,14 @@
+.searchInput{
+    display: block;
+    width: 80vw;
+    height: 2.5em;
+    margin-top: 1em;
+    border: 1px solid #3f3e3e81;
+    border-radius: 1em;
+}
+
+svg{
+    position: relative;
+    left: -2.3em;
+    top: 1.8em;
+}

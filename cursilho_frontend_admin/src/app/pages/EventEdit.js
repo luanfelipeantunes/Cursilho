@@ -42,14 +42,14 @@ function EventEdit(props) {
             <div className={styles.container}>
                 <form className={`form-group`} onSubmit={submit}>
 
-                    <label> Sigla do evento </label>
-                    <input type='text' id='acron' name='acron' className='form-control' placeholder='Digite a sigla do evento' onChange={handleStore} value={newEvent.acron}></input>
+                    <label for='acron'> Sigla do Evento (Ex: EDJC) </label>
+                    <input type='text' id='acron' name='acron' className='form-control' placeholder='Digite a sigla desse evento' onChange={handleStore}></input>
 
                     <label for="name"> Nome do Evento </label>
                     <input type='text' id="name" name="name" className="form-control" placeholder='Digite o nome do evento' onChange={handleStore} value={newEvent.name}></input>
 
                     <label for='start_date'> Data de início </label>
-                    <input type='date' id="start_date" name="start_date" className="form-control" onChange={handleStore}value={newEvent.start_date}></input>
+                    <input type='date' id="start_date" name="start_date" className="form-control" onChange={handleStore} value={newEvent.start_date}></input>
 
                     <label for='end_date'> Data de Fim </label>
                     <input type='date' id="end_date" name="end_date" className="form-control" onChange={handleStore} value={newEvent.end_date}></input>

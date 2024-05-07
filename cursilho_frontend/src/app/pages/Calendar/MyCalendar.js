@@ -59,7 +59,7 @@ function MyCalendar() {
                 events={events}
                 startAccessor="start_date"
                 endAccessor="start_date"
-                titleAccessor="name"
+                titleAccessor="acron"
                 onSelectEvent={handleEvent}
                 messages={messages}
                 culture='pt-br'
@@ -72,6 +72,7 @@ function MyCalendar() {
 
         {openModal && selectedEvent != null &&
             <Modal
+                acron = {selectedEvent.acron}
                 name={selectedEvent.name}
                 start_date={moment(selectedEvent.start_date).format('DD/MM/YYYY')}
                 locale={selectedEvent.locale}

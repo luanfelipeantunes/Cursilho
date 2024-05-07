@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import EventCard from "../components/EventCard";
-import styles from '../layout/Events.module.css';
 import { Constants } from '../utils/Constants';
 import axiosInstance from "../utils/Utils";
 import BetterLoader from "../components/BetterLoader";
+import InputSearch from "../components/InputSearch";
+
 
 
 function Events() {
@@ -13,6 +14,7 @@ function Events() {
     const [perPage, setPerPage] = useState(perPageInitial);
     const [dataTableEvents, setDataTableEvents] = useState([]);
     const [showLoader, setShowLoader] = useState(true);
+    const [search, setSearch] = useState(null);
 
     function loadMore() {
         setShowLoader(true);
@@ -20,10 +22,11 @@ function Events() {
         console.log(perPage);
     }
 
+
     useEffect(() => {
         axiosInstance.get(Constants.baseUrl + `/events?perPage=${perPage}`)
             .then(response => {
-                console.log(response.data);
+                console.log(response.data.data);
                 setEvents(response.data.data);
                 setDataTableEvents(response.data);
                 setShowLoader(false);
@@ -32,11 +35,33 @@ function Events() {
     }, [perPage]);
 
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearch(e.target.value);
+
+        axiosInstance.get(Constants.baseUrl + `/events?inputSearch=${search}&perPage=${perPage}`)
+        .then(response => {
+            setEvents(response.data)
+            console.log("Eventos: ", response.data);
+            setShowLoader(false);
+        })
+        .catch(error => console.error("Erro: ", error));
+    }
+
+
+
+
     return (
         <>
-            <div className={styles.container}>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
 
-                {!showLoader ? events.map(event => [
+                <InputSearch handleChange={handleChange}/>
+
+                {console.log("Loader: ", showLoader)}
+                {console.log("EVENTS: ", events)}
+
+
+                {!showLoader && events ? events.map(event => [
                     <EventCard
                         key={event.id}
                         name={event.name}

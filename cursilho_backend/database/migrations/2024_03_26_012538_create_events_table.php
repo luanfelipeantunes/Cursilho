@@ -18,9 +18,9 @@ class CreateEventsTable extends Migration
             $table->string('acron');
             $table->string('name');
             $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->nullable();
             $table->string('locale');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
