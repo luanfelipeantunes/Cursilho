@@ -1,0 +1,22 @@
+
+.events{
+    display: grid;
+    grid-template-columns: repeat(3, 25vw);
+    gap: 2em;
+    margin: 2em auto;
+
+    @media screen and (max-width: 610px) {
+        grid-template-columns: repeat(1, 75vw);
+    }
+}
+
+.loadMore{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.loadMore > button{
+    width: 75vw;
+    margin-bottom: 1em;
+}

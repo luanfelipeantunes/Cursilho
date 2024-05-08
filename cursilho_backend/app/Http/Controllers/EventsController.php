@@ -16,15 +16,11 @@ class EventsController extends Controller
         $search = request('inputSearch');
         $perPage = $request -> input('perPage', 10);
 
-        Info($search);
-
         if($search){
-            info("Entrou aqui 1");
             $events = Event::where([ 
                 ["name", "like", "%" .$search. "%"]
-            ])->get();
+            ])->paginate($perPage);
         }else{
-            info("Entrou aqui 2");
             $events = Event::paginate($perPage);
         }
         return response()->json($events);

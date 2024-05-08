@@ -19,7 +19,7 @@ function Modal(props) {
                     <div className="modal-body">
                         <h4 style={{textAlign: 'center', fontWeight: 'bold'}}>{props.name}</h4>
                         <h5>Data: <span>{props.start_date}</span></h5>
-                        <h5>Local <span>{props.locale}</span></h5>
+                        <h5>Local: <span>{props.locale}</span></h5>
                         <p>{props.description}</p>
                     </div>
                     <div className="modal-footer">

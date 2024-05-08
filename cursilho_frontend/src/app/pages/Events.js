@@ -4,6 +4,8 @@ import { Constants } from '../utils/Constants';
 import axiosInstance from "../utils/Utils";
 import BetterLoader from "../components/BetterLoader";
 import InputSearch from "../components/InputSearch";
+import styles from "../layout/Events.module.css";
+import { SideBarMb } from "../components/SideBarMb";
 
 
 
@@ -19,17 +21,16 @@ function Events() {
     function loadMore() {
         setShowLoader(true);
         setPerPage(perPage + perPageInitial);
-        console.log(perPage);
     }
 
 
     useEffect(() => {
         axiosInstance.get(Constants.baseUrl + `/events?perPage=${perPage}`)
             .then(response => {
-                console.log(response.data.data);
                 setEvents(response.data.data);
                 setDataTableEvents(response.data);
                 setShowLoader(false);
+                console.log("Events 1 ", response.data.data);
             })
             .catch(error => console.error('Erro na solicitação: ', error))
     }, [perPage]);
@@ -37,15 +38,16 @@ function Events() {
 
     const handleChange = (e) => {
         e.preventDefault();
-        setSearch(e.target.value);
+        setShowLoader(true);
+        const value = e.target.value
+        setSearch(value);
 
         axiosInstance.get(Constants.baseUrl + `/events?inputSearch=${search}&perPage=${perPage}`)
-        .then(response => {
-            setEvents(response.data)
-            console.log("Eventos: ", response.data);
-            setShowLoader(false);
-        })
-        .catch(error => console.error("Erro: ", error));
+            .then(response => {
+                setEvents(response.data.data)
+                setShowLoader(false);
+            })
+            .catch(error => console.error("Erro: ", error));
     }
 
 
@@ -53,14 +55,10 @@ function Events() {
 
     return (
         <>
-            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
 
-                <InputSearch handleChange={handleChange}/>
+            <InputSearch handleChange={handleChange} />
 
-                {console.log("Loader: ", showLoader)}
-                {console.log("EVENTS: ", events)}
-
-
+            <div className={styles.events}>
                 {!showLoader && events ? events.map(event => [
                     <EventCard
                         key={event.id}
@@ -76,9 +74,9 @@ function Events() {
                 }
 
             </div>
-            {!showLoader && <div className="d-grid gap-2 col-6 mx-auto">
+            {!showLoader && <div className={styles.loadMore}>
                 <button
-                    className={`btn btn-secondary ${dataTableEvents.to === dataTableEvents.total ? 'invisible' : ''}`} type="button" style={{ marginBottom: '1em' }} onClick={() => loadMore()}>
+                    className={`btn btn-secondary ${dataTableEvents.to === dataTableEvents.total ? 'invisible' : ''}`} type="button" onClick={() => loadMore()}>
                     Carregar mais
                 </button>
             </div>}

@@ -9,7 +9,7 @@ function Home(){
             <img src={imgHome} alt='MCC Jovem'/>
 
         <p>
-            Fazer <span>amigos</span>, para fazê-los amigos de <span>Cristo</span>!
+            Fazer <span>amigos</span>, para fazê-los amigos de <span>Cristo</span>! <br/>
             <a className={`btn btn-primary btn-lg`} href='/events'> Veja os eventos <FaArrowCircleRight/> </a>
         </p>
 

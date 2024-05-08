@@ -9,7 +9,7 @@ function EventCard(props) {
     const formatedDate = moment(props.start_date).format('DD/MM/YYYY');
 
     return <>
-        <div className={`card ${styles.card}`} style={{ width: '25vw' }}>
+        <div className={`card ${styles.card}`}>
             <div className={`card-header`}>
                 <h4 style={{textAlign: 'center', color:'#F25C05', fontWeight: 'bold'}}>{props.acron}</h4>
                 <h5 className={`card-title`} style={{textAlign: 'center'}}>{props.name}</h5>

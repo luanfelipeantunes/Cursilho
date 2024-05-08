@@ -2,7 +2,7 @@ import Loader from "react-js-loader";
 
 function BetterLoader() {
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100vw" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "75vw" }}>
             <Loader
                 type="spinner-cub"
                 bgColor="red"
