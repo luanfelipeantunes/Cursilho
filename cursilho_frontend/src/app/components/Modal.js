@@ -5,12 +5,12 @@ function Modal(props) {
     const containerStyle = {
         width: '100vw',
         display: 'block',
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
     };
 
     return (
         <div className="modal" style={containerStyle}>
-            <div className="modal-dialog">
+            <div className="modal-dialog modalAlign">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h3 style={{color: '#F25C05', fontWeight:'bold'}}>{props.acron}</h3>

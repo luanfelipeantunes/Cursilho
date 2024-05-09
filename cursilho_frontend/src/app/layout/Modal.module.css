@@ -1,3 +1,9 @@
 span{
     color: #F25C05;
 }
+
+div.modalAlign{
+    @media screen and (max-width: 615px) {
+        margin: 30vh 0.5em !important;
+    }
+}

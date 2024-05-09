@@ -1,14 +1,29 @@
+:root{
+    --maxWidth: 615px;
+}
+
 .home{
     display: flex;
     align-items: center;
     width: 90vw;
     margin: auto;
+    flex-direction: row;
+
+    @media screen and (max-width: 615px) {
+        flex-direction: column;
+    }
+
 }
+
 
 .home > img{
     width: 400px;
     height: 400px;
     margin-left: 5vh;
+
+    @media screen and (max-width: 615px) {
+        margin: 2em auto;
+    }
 }
 
 .home p {
@@ -17,6 +32,11 @@
     width: 30vw;
     font-size: 3em;
     font-weight: bold;
+
+    @media screen and (max-width: 615px){
+        width: 80vw;
+        margin:0 auto 2em auto;
+    }
 }
 
 .home > p > span{

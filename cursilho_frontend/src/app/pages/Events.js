@@ -5,7 +5,6 @@ import axiosInstance from "../utils/Utils";
 import BetterLoader from "../components/BetterLoader";
 import InputSearch from "../components/InputSearch";
 import styles from "../layout/Events.module.css";
-import { SideBarMb } from "../components/SideBarMb";
 
 
 

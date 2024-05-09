@@ -3,6 +3,10 @@
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.507);
     overflow: hidden;
     background-color: aliceblue;
+
+    @media screen and (max-width: 615px) {
+        margin: 0;
+    }
 }
 
 .toolbar{
@@ -20,6 +24,8 @@
 .buttonToolbar > svg {
     font-size: 2.3em;
     color: #c5a3a3;
+    top: 0;
+    left: 0;
 }
 
 .rbc-toolbar-label{
@@ -64,4 +70,8 @@
     color: #F25C05;
     background-color: #50A7F2;
     font-weight: 500;
+
+    @media screen and (max-width: 615px){
+        width: 3em;
+    }
 }

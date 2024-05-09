@@ -1,3 +1,4 @@
+
 .navBar{
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.253);
     
@@ -9,12 +10,22 @@
     font-weight: bold;
 }
 
+.navBar ul{
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 615px){
+        flex-direction: column;
+    }
+}
+
 .navBar ul li{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.3em;
     margin-right: 1.5em;
     font-weight: bold;
 }
+
+
 
 .listItem:hover{
     color: #4992F2 !important;
